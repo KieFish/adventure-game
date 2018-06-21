@@ -8,6 +8,13 @@ window.addEventListener('load', function () {
     var askedForName = false;
     var usersName = '';
 
+    /**
+     * Is the message a greeting or not
+     */
+    function isGreeting(message) {
+        return message == 'hello' || message == 'hi' || message == 'yo';
+    }
+
     function respond(message) {
         addMessage('Me', message);
 
@@ -23,8 +30,8 @@ window.addEventListener('load', function () {
             } else {
                 addMessage('Computer', 'I\'m sorry, you never told me');
             }
-        } else if (message == 'hello') {
-            addMessage('Computer', 'Hello to you too!');
+        } else if (isGreeting(message)) {
+            addMessage('Computer', message + ' to you too!');
             addMessage('Computer', 'What is your name?');
             askedForName = true;
         } else if (message == 'bye') {
